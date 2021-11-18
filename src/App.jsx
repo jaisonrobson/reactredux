@@ -1,10 +1,15 @@
 import React, { useReducer } from 'react'
 
+const ACTIONS = {
+    INCREMENT: 'increment',
+    DECREMENT: 'decrement',
+}
+
 function reducer(state, action) {
     switch (action.type) {
-        case 'increment':
+        case ACTIONS.INCREMENT:
             return { count: state.count + 1 }
-        case 'decrement':
+        case ACTIONS.DECREMENT:
             return { count: state.count - 1 }
         default:
             return state
