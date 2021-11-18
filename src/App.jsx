@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useReducer } from 'react'
+
+function reducer(state, action) {
+    return { count: state.count + 1 }
+}
 
 const App = () => {
+    const [state, dispatch] = useReducer(reducer, { count: 0 })
     const [count, setCount] = useState(0)
 
     function increment() {
-        setCount(prevCount => prevCount + 1)
+        // setCount(prevCount => prevCount + 1)
+        dispatch()
     }
 
     function decrement() {
@@ -14,7 +20,7 @@ const App = () => {
     return (
         <div>
             <button onClick={decrement}>-</button>
-            <span>{count}</span>
+            <span>{state.count}</span>
             <button onClick={increment}>+</button>
         </div>
     )
